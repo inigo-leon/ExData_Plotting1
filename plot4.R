@@ -24,7 +24,7 @@ png(file="plot4.png")
 par(mfrow=c(2,2))
 
 ##Adjust margin
-par(mar=c(4,4,2,2))
+par(mar=c(4,4,3,2))
 
 ##First graphic
 plot(data$Date,data$Global_active_power, type="l", ylab="Global Active Power", xlab="")
