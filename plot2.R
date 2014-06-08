@@ -5,15 +5,15 @@ data<-read.csv("household_power_consumption.txt", sep=";")
 data<-data[data$Date=="1/2/2007" | data$Date=="2/2/2007",]
 
 ##Convert Global_active_power into numeric
-data$Global_active_power<-as.numeric(data$Global_active_power)
+data$Global_active_power<-as.numeric(as.character(data$Global_active_power))
 
 ##Convert Date to Date/Time joining data$Date and data$Time
 data$Date<-paste(data$Date,data$Time)
 data$Date<-strptime(data$Date, "%d/%m/%Y %H:%M:%S")
 
-##Plot Global_active_power/500 for showing the correct X axe scale and save it on a png file
+##Plot Global_active_power and save it on a png file
 png(file="plot2.png")
-plot(data$Date,data$Global_active_power/500, type="l", ylab="Global Active Power (kilowatts)", xlab="")
+plot(data$Date,data$Global_active_power, type="l", ylab="Global Active Power (kilowatts)", xlab="")
 dev.off()
 
 ##NOTE: the names of the X axe are in Spanish language
